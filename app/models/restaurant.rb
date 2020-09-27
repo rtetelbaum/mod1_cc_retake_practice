@@ -1,6 +1,5 @@
 def Restaurant
-	attr_reader :owner
-	attr_accessor :name, :star_rating
+	attr_accessor :name, :star_rating, :owner
 
 	@@all = []
 
@@ -21,5 +20,13 @@ def Restaurant
 
 	def recipes
 		self.menu_items.collect { |menu_item| menu_item.recipe }
+	end
+
+	def has_dish?(recipe)
+		self.recipes.include? recipe
+	end
+
+	def self.highest_rated
+		self.all.max_by { |restaurant| restaurant.star_rating }
 	end
 end
