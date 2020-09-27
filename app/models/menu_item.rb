@@ -14,4 +14,8 @@ def MenuItem
 	def self.all
 		@@all
 	end
+
+	def owner
+		self.restaurant.owner
+	end
 end

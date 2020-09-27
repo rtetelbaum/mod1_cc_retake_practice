@@ -12,4 +12,12 @@ def RestaurantOwner
 	def self.all
 		@@all
 	end
+
+	def restaurants
+		Restaurant.all.find_all { |restaurant| restaurant.owner == self }
+	end
+
+	def menu_items
+		self.restaurants.collect { |restaurant| restaurant.menu_items }
+	end
 end
