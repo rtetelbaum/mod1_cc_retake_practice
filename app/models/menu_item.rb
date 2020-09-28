@@ -1,4 +1,4 @@
-def MenuItem
+class MenuItem
 	attr_accessor :price
 	attr_reader :restaurant, :recipe
 

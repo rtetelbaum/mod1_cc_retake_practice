@@ -1,4 +1,4 @@
-def Restaurant
+class Restaurant
 	attr_accessor :name, :star_rating, :owner
 
 	@@all = []

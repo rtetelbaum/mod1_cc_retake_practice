@@ -1,4 +1,4 @@
-def RestaurantOwner
+class RestaurantOwner
 	attr_accessor :name, :age
 
 	@@all = []

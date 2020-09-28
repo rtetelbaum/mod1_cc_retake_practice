@@ -1,4 +1,4 @@
-def Recipe
+class Recipe
 	attr_reader :name
 	attr_accessor :description
 
@@ -46,8 +46,8 @@ def Recipe
 
 	def self.inactive
 		inactive = []
-		self.all.each do |recipe|
-			inactive << recipe.menu_items == []
+		self.all.each do |r|
+			inactive << r if r.menu_items == []
 		end
 		inactive
 	end
