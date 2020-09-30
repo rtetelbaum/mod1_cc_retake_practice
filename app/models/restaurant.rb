@@ -21,4 +21,12 @@ class Restaurant
 	def recipes
 		self.menu_items.collect { |mi| mi.recipe }
 	end
+
+	def has_dish?(recipe)
+		self.recipes.include?(recipe)
+	end
+
+	def self.highest_rated
+		self.all.max_by { |restaurant| restaurant.star_rating }
+	end
 end

@@ -20,4 +20,13 @@ class RestaurantOwner
 	def menu_items
 		MenuItem.all.find_all { |mi| mi.owner == self }
 	end
+
+	def self.average_age
+		ages = self.all.collect { |ro| ro.age }
+		ages.sum / ages.size
+	end
+
+	def sell_restaurant(restaurant, buyer)
+		restaurant.owner = buyer if restaurant.owner == self
+	end
 end

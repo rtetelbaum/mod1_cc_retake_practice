@@ -21,4 +21,28 @@ class Recipe
 	def restaurants
 		self.menu_items.collect { |mi| mi.restaurant }
 	end
+
+	def average_price
+		prices = self.menu_items.collect { |mi| mi.price }
+		avg = prices.sum / prices.size
+		avg.to_i
+	end
+
+	def highest_price
+		highest = self.menu_items.max_by { |mi| mi.price }
+		highest.to_i
+	end
+
+	def cheapest_resaturant
+		mi = self.menu_items.min_by { |mi| mi.price }
+		mi.restaurant
+	end
+
+	def self.inactive
+		inactive_recipes = []
+		self.all.each do |recipe|
+			inactive_recipes << recipe if recipe.menu_items == []
+		end
+		inactive_recipes
+	end
 end
