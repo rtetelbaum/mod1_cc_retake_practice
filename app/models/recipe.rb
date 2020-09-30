@@ -30,10 +30,10 @@ class Recipe
 
 	def highest_price
 		highest = self.menu_items.max_by { |mi| mi.price }
-		highest.to_i
+		highest.price.to_i
 	end
 
-	def cheapest_resaturant
+	def cheapest_restaurant
 		mi = self.menu_items.min_by { |mi| mi.price }
 		mi.restaurant
 	end
