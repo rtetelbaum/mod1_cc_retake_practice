@@ -12,4 +12,12 @@ class RestaurantOwner
 	def self.all
 		@@all
 	end
+
+	def restaurants
+		Restaurant.all.find_all { |r| r.owner == self }
+	end
+
+	def menu_items
+		MenuItem.all.find_all { |mi| mi.owner == self }
+	end
 end

@@ -13,4 +13,12 @@ class Restaurant
 	def self.all
 		@@all
 	end
+
+	def menu_items
+		MenuItem.all.find_all { |mi| mi.restaurant == self }
+	end
+
+	def recipes
+		self.menu_items.collect { |mi| mi.recipe }
+	end
 end
